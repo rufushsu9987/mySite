@@ -2,7 +2,9 @@
 
 A fast, dependency-free portfolio site for Rufus Hsu, focused on AI applications, cloud architecture, and DevOps.
 
-**Live site:** https://rufus-hsu-portfolio-ai-saas-hsu.vercel.app
+**Vercel production URL:** https://rufus-hsu-portfolio-ai-saas-hsu.vercel.app
+
+> The production deployment is complete. Public traffic is currently gated by Vercel Authentication. In Vercel, open **Project → Settings → Deployment Protection** and disable **Vercel Authentication** to make the portfolio publicly accessible.
 
 ## Highlights
 
@@ -23,4 +25,4 @@ Open `http://localhost:4173`.
 
 ## Deployment
 
-The repository is designed for zero-configuration static deployment on Vercel.
+The repository is designed for zero-configuration static deployment on Vercel. A manual production smoke test is available through GitHub Actions after deployment protection is disabled.
