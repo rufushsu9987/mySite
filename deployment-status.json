@@ -1,0 +1,20 @@
+{
+  "checked_at": "2026-08-07T20:52:39.294909+00:00",
+  "results": [
+    {
+      "url": "https://rufus-hsu-portfolio-hyqxkk848-ai-saas-hsu.vercel.app",
+      "http_status": "200",
+      "contains_rufus_hsu": false
+    },
+    {
+      "url": "https://rufus-hsu-portfolio-ai-saas-hsu.vercel.app",
+      "http_status": "200",
+      "contains_rufus_hsu": false
+    },
+    {
+      "url": "https://rufus-hsu-portfolio-rufushsu9987-ai-saas-hsu.vercel.app",
+      "http_status": "200",
+      "contains_rufus_hsu": false
+    }
+  ]
+}
