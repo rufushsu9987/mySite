@@ -1,0 +1,14 @@
+{
+  "checked_at": "2026-08-07T20:57:40.240918+00:00",
+  "token_available": false,
+  "token_source_checked": "ZEIT_TOKEN",
+  "command_attempted": false,
+  "command_succeeded": false,
+  "sanitized_output": "No configured Vercel token was available to this workflow.",
+  "site_url": "https://rufus-hsu-portfolio-ai-saas-hsu.vercel.app",
+  "http_status": "200",
+  "final_url": "https://vercel.com/login?next=%2Fsso-api%3Furl%3Dhttps%253A%252F%252Frufus-hsu-portfolio-ai-saas-hsu.vercel.app%252F%26nonce%3D98f036e8bfef32ea238cb2e3bf20e17f4b74e7e576db029eb0a4ff6e5bc82693",
+  "title": "Login – Vercel",
+  "contains_rufus_hsu": false,
+  "publicly_accessible": false
+}
