@@ -1,0 +1,381 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 4 0 R /F2 5 0 R >> >> /Contents 6 0 R >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+6 0 obj
+<< /Length 5045 >>
+stream
+0.040 0.480 0.450 rg
+BT
+/F2 10 Tf
+52 744 Td
+(AI APPLICATIONS  X  CLOUD ARCHITECTURE  X  DEVOPS) Tj
+ET
+0.055 0.102 0.176 rg
+BT
+/F2 28 Tf
+52 712 Td
+(Rufus Hsu) Tj
+ET
+0.055 0.102 0.176 rg
+BT
+/F2 11 Tf
+52 687 Td
+(R&D at Chunghwa Telecom Co., Ltd.) Tj
+ET
+0.055 0.102 0.176 rg
+BT
+/F1 10 Tf
+52 670 Td
+(Building deployable and maintainable AI-enabled systems across agent) Tj
+ET
+0.055 0.102 0.176 rg
+BT
+/F1 10 Tf
+52 655 Td
+(workflows, cloud architecture, automation, and practical web applications.) Tj
+ET
+0.780 0.820 0.870 RG
+0.8 w 52 636 m 560 636 l S
+0.200 0.370 0.910 rg
+BT
+/F2 10 Tf
+52 614 Td
+(PROFILE) Tj
+ET
+0.055 0.102 0.176 rg
+BT
+/F1 9.2 Tf
+52 595 Td
+(Engineer focused on turning prototypes into systems that can be deployed, observed,) Tj
+ET
+0.055 0.102 0.176 rg
+BT
+/F1 9.2 Tf
+52 581 Td
+(maintained, and improved by real teams. Works across LLM/RAG workflows, AI agents,) Tj
+ET
+0.055 0.102 0.176 rg
+BT
+/F1 9.2 Tf
+52 567 Td
+(GCP/Azure services, CI/CD, dashboards, and developer tooling.) Tj
+ET
+0.200 0.370 0.910 rg
+BT
+/F2 10 Tf
+52 538 Td
+(SELECTED PROJECTS) Tj
+ET
+0.055 0.102 0.176 rg
+BT
+/F2 11 Tf
+52 516 Td
+(ASR-D Personalized Dysarthric Speech Recognition) Tj
+ET
+0.055 0.102 0.176 rg
+BT
+/F1 8.8 Tf
+52 500 Td
+(Personalized ASR and patient analysis workflow combining speech model fine-tuning,) Tj
+ET
+0.055 0.102 0.176 rg
+BT
+/F1 8.8 Tf
+52 487 Td
+(historical correction, LLM/RAG post-processing, and review interfaces.) Tj
+ET
+0.040 0.480 0.450 rg
+BT
+/F2 8.2 Tf
+52 474 Td
+(ASR  /  LLM-RAG  /  NLP) Tj
+ET
+0.055 0.102 0.176 rg
+BT
+/F2 11 Tf
+52 451 Td
+(Chinese Spell Checking and Correction) Tj
+ET
+0.055 0.102 0.176 rg
+BT
+/F1 8.8 Tf
+52 435 Td
+(Chinese NLP workflows including corpus construction, BERT-to-LLM experimentation,) Tj
+ET
+0.055 0.102 0.176 rg
+BT
+/F1 8.8 Tf
+52 422 Td
+(error detection, candidate correction, and iterative evaluation.) Tj
+ET
+0.040 0.480 0.450 rg
+BT
+/F2 8.2 Tf
+52 409 Td
+(BERT  /  LLM  /  Chinese NLP) Tj
+ET
+0.055 0.102 0.176 rg
+BT
+/F2 11 Tf
+52 386 Td
+(AI Agent Applications and Workflows) Tj
+ET
+0.055 0.102 0.176 rg
+BT
+/F1 8.8 Tf
+52 370 Td
+(Agent workflows around LLMs, tool calls, state management, and deployable) Tj
+ET
+0.055 0.102 0.176 rg
+BT
+/F1 8.8 Tf
+52 357 Td
+(local/cloud experimentation paths for practical automation.) Tj
+ET
+0.040 0.480 0.450 rg
+BT
+/F2 8.2 Tf
+52 344 Td
+(Agent  /  Tool Use  /  Automation) Tj
+ET
+0.055 0.102 0.176 rg
+BT
+/F2 11 Tf
+52 321 Td
+(Cloud Architecture and DevOps Optimization) Tj
+ET
+0.055 0.102 0.176 rg
+BT
+/F1 8.8 Tf
+52 305 Td
+(Service-style architecture using GCP, Azure, Cloud Run, App Engine, SQL,) Tj
+ET
+0.055 0.102 0.176 rg
+BT
+/F1 8.8 Tf
+52 292 Td
+(Azure DevOps, ACR builds, and CI/CD checks.) Tj
+ET
+0.040 0.480 0.450 rg
+BT
+/F2 8.2 Tf
+52 279 Td
+(GCP  /  Azure  /  CI-CD) Tj
+ET
+0.780 0.820 0.870 RG
+0.6 w 392 614 m 392 175 l S
+0.200 0.370 0.910 rg
+BT
+/F2 10 Tf
+414 614 Td
+(CURRENT ROLE) Tj
+ET
+0.055 0.102 0.176 rg
+BT
+/F2 10 Tf
+414 594 Td
+(Chunghwa Telecom) Tj
+ET
+0.055 0.102 0.176 rg
+BT
+/F1 9 Tf
+414 580 Td
+(Research & Development) Tj
+ET
+0.055 0.102 0.176 rg
+BT
+/F1 8.8 Tf
+414 558 Td
+(Turning AI prototypes into) Tj
+ET
+0.055 0.102 0.176 rg
+BT
+/F1 8.8 Tf
+414 545 Td
+(deployable and maintainable) Tj
+ET
+0.055 0.102 0.176 rg
+BT
+/F1 8.8 Tf
+414 532 Td
+(products and services.) Tj
+ET
+0.200 0.370 0.910 rg
+BT
+/F2 10 Tf
+414 500 Td
+(TECHNICAL STACK) Tj
+ET
+0.040 0.480 0.450 rg
+BT
+/F2 8 Tf
+414 480 Td
+(CLOUD) Tj
+ET
+0.055 0.102 0.176 rg
+BT
+/F1 7.9 Tf
+414 468 Td
+(GCP, Azure, Cloud Run, App Engine,) Tj
+ET
+0.055 0.102 0.176 rg
+BT
+/F1 7.9 Tf
+414 452 Td
+(Managed Identity) Tj
+ET
+0.040 0.480 0.450 rg
+BT
+/F2 8 Tf
+414 436 Td
+(AI) Tj
+ET
+0.055 0.102 0.176 rg
+BT
+/F1 7.9 Tf
+414 424 Td
+(LLM, RAG, AI Agent, Prompt Design,) Tj
+ET
+0.055 0.102 0.176 rg
+BT
+/F1 7.9 Tf
+414 408 Td
+(Azure AI) Tj
+ET
+0.040 0.480 0.450 rg
+BT
+/F2 8 Tf
+414 392 Td
+(BACKEND) Tj
+ET
+0.055 0.102 0.176 rg
+BT
+/F1 7.9 Tf
+414 380 Td
+(Python, Java, REST API, SQL, FastAPI) Tj
+ET
+0.040 0.480 0.450 rg
+BT
+/F2 8 Tf
+414 364 Td
+(FRONTEND) Tj
+ET
+0.055 0.102 0.176 rg
+BT
+/F1 7.9 Tf
+414 352 Td
+(React, Vite, HTML, CSS, JavaScript) Tj
+ET
+0.040 0.480 0.450 rg
+BT
+/F2 8 Tf
+414 336 Td
+(DEVOPS) Tj
+ET
+0.055 0.102 0.176 rg
+BT
+/F1 7.9 Tf
+414 324 Td
+(Docker, CI/CD, Azure DevOps, ACR) Tj
+ET
+0.200 0.370 0.910 rg
+BT
+/F2 10 Tf
+414 280 Td
+(WORKING STYLE) Tj
+ET
+0.055 0.102 0.176 rg
+BT
+/F2 9 Tf
+414 259 Td
+(01  Validate first) Tj
+ET
+0.055 0.102 0.176 rg
+BT
+/F2 9 Tf
+414 243 Td
+(02  Service-ize next) Tj
+ET
+0.055 0.102 0.176 rg
+BT
+/F2 9 Tf
+414 227 Td
+(03  Automate last) Tj
+ET
+0.780 0.820 0.870 RG
+0.8 w 52 154 m 560 154 l S
+0.040 0.480 0.450 rg
+BT
+/F2 8.8 Tf
+52 132 Td
+(EMAIL) Tj
+ET
+0.055 0.102 0.176 rg
+BT
+/F1 8.8 Tf
+52 117 Td
+(rufushsu9987@gmail.com) Tj
+ET
+0.040 0.480 0.450 rg
+BT
+/F2 8.8 Tf
+224 132 Td
+(GITHUB) Tj
+ET
+0.055 0.102 0.176 rg
+BT
+/F1 8.8 Tf
+224 117 Td
+(github.com/rufushsu9987) Tj
+ET
+0.040 0.480 0.450 rg
+BT
+/F2 8.8 Tf
+414 132 Td
+(LINKEDIN) Tj
+ET
+0.055 0.102 0.176 rg
+BT
+/F1 8.2 Tf
+414 117 Td
+(linkedin.com/in/rufus-hsu-aa41063b5) Tj
+ET
+0.420 0.470 0.550 rg
+BT
+/F1 7.5 Tf
+52 82 Td
+(Portfolio generated from the resume supplied by Rufus Hsu.) Tj
+ET
+endstream
+endobj
+7 0 obj
+<< /Title (Rufus Hsu Resume) /Author (Rufus Hsu) /Subject (AI Applications, Cloud Architecture and DevOps) >>
+endobj
+xref
+0 8
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000251 00000 n 
+0000000321 00000 n 
+0000000396 00000 n 
+0000005492 00000 n 
+trailer
+<< /Size 8 /Root 1 0 R /Info 7 0 R >>
+startxref
+5617
+%%EOF
