@@ -5,20 +5,21 @@ on:
     branches: [main]
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   probe:
     runs-on: ubuntu-latest
     timeout-minutes: 3
     steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
       - name: Probe deployment URLs
         shell: bash
         run: |
           set +e
-          echo "## Vercel URL probe" >> "$GITHUB_STEP_SUMMARY"
-          echo "| URL | HTTP | Contains Rufus Hsu |" >> "$GITHUB_STEP_SUMMARY"
-          echo "|---|---:|:---:|" >> "$GITHUB_STEP_SUMMARY"
+          : > diagnostics.tsv
           urls=(
             "https://rufus-hsu-portfolio-hyqxkk848-ai-saas-hsu.vercel.app"
             "https://rufus-hsu-portfolio-ai-saas-hsu.vercel.app"
@@ -26,6 +27,38 @@ jobs:
           )
           for url in "${urls[@]}"; do
             status=$(curl -L -sS -o response.html -w '%{http_code}' --max-time 25 "$url" || true)
-            if grep -q "Rufus Hsu" response.html 2>/dev/null; then contains=yes; else contains=no; fi
-            echo "| $url | ${status:-unavailable} | $contains |" >> "$GITHUB_STEP_SUMMARY"
+            if grep -q "Rufus Hsu" response.html 2>/dev/null; then contains=true; else contains=false; fi
+            printf '%s\t%s\t%s\n' "$url" "${status:-unavailable}" "$contains" >> diagnostics.tsv
           done
+          python3 - <<'PY'
+          import json
+          from datetime import datetime, timezone
+          rows = []
+          with open('diagnostics.tsv', encoding='utf-8') as handle:
+              for line in handle:
+                  url, status, contains = line.rstrip('\n').split('\t')
+                  rows.append({
+                      'url': url,
+                      'http_status': status,
+                      'contains_rufus_hsu': contains == 'true',
+                  })
+          with open('deployment-status.json', 'w', encoding='utf-8') as handle:
+              json.dump({
+                  'checked_at': datetime.now(timezone.utc).isoformat(),
+                  'results': rows,
+              }, handle, ensure_ascii=False, indent=2)
+              handle.write('\n')
+          PY
+
+      - name: Persist diagnostics
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add deployment-status.json
+          if git diff --cached --quiet; then
+            echo "No diagnostic changes to commit."
+          else
+            git commit -m "ci: record Vercel probe [skip ci]"
+            git push
+          fi
