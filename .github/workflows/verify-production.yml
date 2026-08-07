@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 4
     env:
-      SITE_URL: https://rufus-hsu-ai-saas-hsu.vercel.app
+      SITE_URL: https://rufus-hsu-public-ai-saas-hsu.vercel.app
     steps:
       - name: Wait for the production deployment
         shell: bash
