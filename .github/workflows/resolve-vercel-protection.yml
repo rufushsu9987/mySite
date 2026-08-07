@@ -1,0 +1,119 @@
+name: Resolve Vercel deployment protection
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  resolve:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      VERCEL_TOKEN_PRIMARY: ${{ secrets.VERCEL_TOKEN }}
+      VERCEL_TOKEN_SECONDARY: ${{ secrets.VERCEL_ACCESS_TOKEN }}
+      VERCEL_TOKEN_LEGACY: ${{ secrets.ZEIT_TOKEN }}
+      PROJECT_NAME: rufus-hsu-portfolio
+      TEAM_SLUG: ai-saas-hsu
+      SITE_URL: https://rufus-hsu-portfolio-ai-saas-hsu.vercel.app
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Disable Vercel Authentication when credentials are available
+        id: protection
+        shell: bash
+        run: |
+          set +e
+          token="${VERCEL_TOKEN_PRIMARY:-}"
+          token_source="VERCEL_TOKEN"
+          if [[ -z "$token" ]]; then
+            token="${VERCEL_TOKEN_SECONDARY:-}"
+            token_source="VERCEL_ACCESS_TOKEN"
+          fi
+          if [[ -z "$token" ]]; then
+            token="${VERCEL_TOKEN_LEGACY:-}"
+            token_source="ZEIT_TOKEN"
+          fi
+
+          token_available=false
+          command_attempted=false
+          command_succeeded=false
+          sanitized_output="No configured Vercel token was available to this workflow."
+
+          if [[ -n "$token" ]]; then
+            token_available=true
+            command_attempted=true
+            echo "::add-mask::$token"
+            set -o pipefail
+            output=$(npx --yes vercel@latest project protection disable "$PROJECT_NAME" --sso --scope "$TEAM_SLUG" --token "$token" 2>&1)
+            exit_code=$?
+            if [[ $exit_code -eq 0 ]]; then
+              command_succeeded=true
+            fi
+            sanitized_output=$(printf '%s' "$output" | sed -E 's/(token|secret|authorization)([^[:space:]]*)/\1=[REDACTED]/Ig' | tail -c 3000)
+          fi
+
+          export TOKEN_AVAILABLE="$token_available"
+          export TOKEN_SOURCE="$token_source"
+          export COMMAND_ATTEMPTED="$command_attempted"
+          export COMMAND_SUCCEEDED="$command_succeeded"
+          export SANITIZED_OUTPUT="$sanitized_output"
+          python3 - <<'PY'
+          import json, os
+          with open('protection-command.json', 'w', encoding='utf-8') as handle:
+              json.dump({
+                  'token_available': os.environ['TOKEN_AVAILABLE'] == 'true',
+                  'token_source_checked': os.environ['TOKEN_SOURCE'],
+                  'command_attempted': os.environ['COMMAND_ATTEMPTED'] == 'true',
+                  'command_succeeded': os.environ['COMMAND_SUCCEEDED'] == 'true',
+                  'sanitized_output': os.environ['SANITIZED_OUTPUT'],
+              }, handle, ensure_ascii=False, indent=2)
+              handle.write('\n')
+          PY
+
+      - name: Probe public access
+        shell: bash
+        run: |
+          set +e
+          sleep 8
+          status=$(curl -L -sS -D response-headers.txt -o response.html -w '%{http_code}' --max-time 30 "$SITE_URL" || true)
+          final_url=$(curl -L -sS -o /dev/null -w '%{url_effective}' --max-time 30 "$SITE_URL" || true)
+          export STATUS="${status:-unavailable}"
+          export FINAL_URL="$final_url"
+          python3 - <<'PY'
+          import json, os, re
+          from datetime import datetime, timezone
+          from pathlib import Path
+          command = json.loads(Path('protection-command.json').read_text(encoding='utf-8'))
+          body = Path('response.html').read_text(encoding='utf-8', errors='replace') if Path('response.html').exists() else ''
+          title_match = re.search(r'<title[^>]*>(.*?)</title>', body, re.I | re.S)
+          title = re.sub(r'\s+', ' ', title_match.group(1)).strip() if title_match else ''
+          result = {
+              'checked_at': datetime.now(timezone.utc).isoformat(),
+              **command,
+              'site_url': os.environ['SITE_URL'],
+              'http_status': os.environ['STATUS'],
+              'final_url': os.environ['FINAL_URL'],
+              'title': title,
+              'contains_rufus_hsu': 'Rufus Hsu' in body,
+              'publicly_accessible': os.environ['STATUS'] == '200' and 'Rufus Hsu' in body and 'vercel.com/login' not in os.environ['FINAL_URL'],
+          }
+          Path('protection-resolution.json').write_text(json.dumps(result, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          PY
+
+      - name: Persist non-sensitive result
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add protection-resolution.json
+          if git diff --cached --quiet; then
+            echo "No result changes to commit."
+          else
+            git commit -m "ci: record Vercel protection result [skip ci]"
+            git push
+          fi
