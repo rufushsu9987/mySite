@@ -1,0 +1,41 @@
+name: Verify production portfolio
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  smoke-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      SITE_URL: https://rufus-hsu-portfolio-ai-saas-hsu.vercel.app
+    steps:
+      - name: Wait for the production deployment
+        shell: bash
+        run: |
+          set -euo pipefail
+          for attempt in $(seq 1 30); do
+            status=$(curl -L -sS -o site.html -w '%{http_code}' --max-time 20 "$SITE_URL" || true)
+            if [[ "$status" == "200" ]] && grep -q "Rufus Hsu" site.html; then
+              echo "Production portfolio is reachable on attempt $attempt."
+              exit 0
+            fi
+            echo "Attempt $attempt: HTTP ${status:-unavailable}; retrying in 10 seconds..."
+            sleep 10
+          done
+          echo "Production portfolio did not become ready in time."
+          exit 1
+
+      - name: Verify critical assets and security headers
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -fsSL "$SITE_URL/styles.css" | grep -q "styles-1.css"
+          curl -fsSL "$SITE_URL/script.js" | grep -q "Rufus Hsu"
+          curl -fsSI "$SITE_URL/resume-rufus-hsu.pdf" | grep -qi '^content-type: application/pdf'
+          curl -fsSI "$SITE_URL" | grep -qi '^x-content-type-options: nosniff'
