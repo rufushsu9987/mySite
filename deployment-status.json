@@ -1,40 +1,40 @@
 {
-  "checked_at": "2026-08-07T20:53:24.287600+00:00",
+  "checked_at": "2026-08-07T20:56:32.151331+00:00",
   "results": [
     {
       "url": "https://rufus-hsu-portfolio-hyqxkk848-ai-saas-hsu.vercel.app",
       "http_status": "200",
-      "final_url": "https://vercel.com/login?next=%2Fsso-api%3Furl%3Dhttps%253A%252F%252Frufus-hsu-portfolio-hyqxkk848-ai-saas-hsu.vercel.app%252F%26nonce%3Dc890acadbb072baf3b8b3fa991e44b4ee036fa3f4b8c22c7ddfbe9ec94c17c97",
+      "final_url": "https://vercel.com/login?next=%2Fsso-api%3Furl%3Dhttps%253A%252F%252Frufus-hsu-portfolio-hyqxkk848-ai-saas-hsu.vercel.app%252F%26nonce%3D4e98780251f799e0402e10620cf08410c6837545e54ce8e851de61acfc5a4b0c",
       "content_type": "text/html; charset=utf-8",
       "size_download": "496642",
       "contains_rufus_hsu": false,
       "title": "Login – Vercel",
       "body_preview": "<!DOCTYPE html><html data-dpl-id=\"dpl_FbBgzPJDEYZe1iTnx4hCeomHiBBy\" class=\"geist_mono_fe992356-module__VEU71W__className geistsans_d5a4f12f-module__xjg95W__className geist_mono_fe992356-module__VEU71W__variable geistsans_d5a4f12f-module__xjg95W__variable dash\" lang=\"en-US\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1\"/><link rel=\"stylesheet\" href=\"/_next/static/immutable/chunks/2m7nnnj5vb7g3.css\" data-precedence=\"next\"/><link re",
-      "sha256": "1e8cbbf4cb9a1a70cb5e9ac1972e8c95e73d62a79ae852684a2623a536282a3b",
+      "sha256": "ff75ad400483986f7796488301c3f8b70a6372423e69c1a4ae0afe430ef932d1",
       "has_vercel_auth_cookie": false
     },
     {
       "url": "https://rufus-hsu-portfolio-ai-saas-hsu.vercel.app",
       "http_status": "200",
-      "final_url": "https://vercel.com/login?next=%2Fsso-api%3Furl%3Dhttps%253A%252F%252Frufus-hsu-portfolio-ai-saas-hsu.vercel.app%252F%26nonce%3Ddd090dbff5b674543b19e8d33563a19edd461b7eb96b63358cb3bee8d7c5f61e",
+      "final_url": "https://vercel.com/login?next=%2Fsso-api%3Furl%3Dhttps%253A%252F%252Frufus-hsu-portfolio-ai-saas-hsu.vercel.app%252F%26nonce%3D08a96cf2015c13cf1c41792bfca51ea10b555cb4a9dd5e94e469d37b0a08ae1a",
       "content_type": "text/html; charset=utf-8",
       "size_download": "495859",
       "contains_rufus_hsu": false,
       "title": "Login – Vercel",
       "body_preview": "<!DOCTYPE html><html data-dpl-id=\"dpl_FbBgzPJDEYZe1iTnx4hCeomHiBBy\" class=\"geist_mono_fe992356-module__VEU71W__className geistsans_d5a4f12f-module__xjg95W__className geist_mono_fe992356-module__VEU71W__variable geistsans_d5a4f12f-module__xjg95W__variable dash\" lang=\"en-US\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1\"/><link rel=\"stylesheet\" href=\"/_next/static/immutable/chunks/2m7nnnj5vb7g3.css\" data-precedence=\"next\"/><link re",
-      "sha256": "58c173582e8316a7d297a9dade894a5ea74be286464c88dd0f02549672bb9bee",
+      "sha256": "9d8d6385a1349368750282d460bdbb4f3dbfa27bdbb3c87039d6439accbec43c",
       "has_vercel_auth_cookie": false
     },
     {
       "url": "https://rufus-hsu-portfolio-rufushsu9987-ai-saas-hsu.vercel.app",
       "http_status": "200",
-      "final_url": "https://vercel.com/login?next=%2Fsso-api%3Furl%3Dhttps%253A%252F%252Frufus-hsu-portfolio-rufushsu9987-ai-saas-hsu.vercel.app%252F%26nonce%3D7905fc7d2c926471defd6f2dbb2f813f5606036ca5954b67dbf1d3a81c8b8fff",
+      "final_url": "https://vercel.com/login?next=%2Fsso-api%3Furl%3Dhttps%253A%252F%252Frufus-hsu-portfolio-rufushsu9987-ai-saas-hsu.vercel.app%252F%26nonce%3D755dcd11fc7baf64f1f1c22eb74e7f3ae0e66eb291b2aec8fac15067c0c85cd3",
       "content_type": "text/html; charset=utf-8",
       "size_download": "496664",
       "contains_rufus_hsu": false,
       "title": "Login – Vercel",
       "body_preview": "<!DOCTYPE html><html data-dpl-id=\"dpl_FbBgzPJDEYZe1iTnx4hCeomHiBBy\" class=\"geist_mono_fe992356-module__VEU71W__className geistsans_d5a4f12f-module__xjg95W__className geist_mono_fe992356-module__VEU71W__variable geistsans_d5a4f12f-module__xjg95W__variable dash\" lang=\"en-US\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1\"/><link rel=\"stylesheet\" href=\"/_next/static/immutable/chunks/2m7nnnj5vb7g3.css\" data-precedence=\"next\"/><link re",
-      "sha256": "f27d66a6c4f781f8a47ae24b7b2911fd5040d1aa43fa46fa3182d726f1567207",
+      "sha256": "ee0d925839be6e4373fb6dedac4dc922329dd0633043ea83c50a6d3ad74922f2",
       "has_vercel_auth_cookie": false
     }
   ]
