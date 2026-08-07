@@ -11,24 +11,25 @@ permissions:
 jobs:
   smoke-test:
     runs-on: ubuntu-latest
-    timeout-minutes: 8
+    timeout-minutes: 4
     env:
-      SITE_URL: https://rufus-hsu-portfolio-ai-saas-hsu.vercel.app
+      SITE_URL: https://rufus-hsu-ai-saas-hsu.vercel.app
     steps:
       - name: Wait for the production deployment
         shell: bash
         run: |
           set -euo pipefail
-          for attempt in $(seq 1 30); do
+          for attempt in $(seq 1 12); do
             status=$(curl -L -sS -o site.html -w '%{http_code}' --max-time 20 "$SITE_URL" || true)
-            if [[ "$status" == "200" ]] && grep -q "Rufus Hsu" site.html; then
-              echo "Production portfolio is reachable on attempt $attempt."
+            final_url=$(curl -L -sS -o /dev/null -w '%{url_effective}' --max-time 20 "$SITE_URL" || true)
+            if [[ "$status" == "200" ]] && grep -q "Rufus Hsu" site.html && [[ "$final_url" != *"vercel.com/login"* ]]; then
+              echo "Production portfolio is publicly reachable on attempt $attempt."
               exit 0
             fi
-            echo "Attempt $attempt: HTTP ${status:-unavailable}; retrying in 10 seconds..."
+            echo "Attempt $attempt: HTTP ${status:-unavailable}, final URL: ${final_url:-unavailable}; retrying in 10 seconds..."
             sleep 10
           done
-          echo "Production portfolio did not become ready in time."
+          echo "Production portfolio did not become publicly reachable in time."
           exit 1
 
       - name: Verify critical assets and security headers
