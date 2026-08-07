@@ -1,0 +1,31 @@
+name: Diagnose Vercel URLs
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Probe deployment URLs
+        shell: bash
+        run: |
+          set +e
+          echo "## Vercel URL probe" >> "$GITHUB_STEP_SUMMARY"
+          echo "| URL | HTTP | Contains Rufus Hsu |" >> "$GITHUB_STEP_SUMMARY"
+          echo "|---|---:|:---:|" >> "$GITHUB_STEP_SUMMARY"
+          urls=(
+            "https://rufus-hsu-portfolio-hyqxkk848-ai-saas-hsu.vercel.app"
+            "https://rufus-hsu-portfolio-ai-saas-hsu.vercel.app"
+            "https://rufus-hsu-portfolio-rufushsu9987-ai-saas-hsu.vercel.app"
+          )
+          for url in "${urls[@]}"; do
+            status=$(curl -L -sS -o response.html -w '%{http_code}' --max-time 25 "$url" || true)
+            if grep -q "Rufus Hsu" response.html 2>/dev/null; then contains=yes; else contains=no; fi
+            echo "| $url | ${status:-unavailable} | $contains |" >> "$GITHUB_STEP_SUMMARY"
+          done
