@@ -8,10 +8,14 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: verify-production
+  cancel-in-progress: true
+
 jobs:
   smoke-test:
     runs-on: ubuntu-latest
-    timeout-minutes: 4
+    timeout-minutes: 3
     env:
       SITE_URL: https://rufus-hsu-public-ai-saas-hsu.vercel.app
     steps:
@@ -19,7 +23,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          for attempt in $(seq 1 12); do
+          for attempt in $(seq 1 6); do
             status=$(curl -L -sS -o site.html -w '%{http_code}' --max-time 20 "$SITE_URL" || true)
             final_url=$(curl -L -sS -o /dev/null -w '%{url_effective}' --max-time 20 "$SITE_URL" || true)
             if [[ "$status" == "200" ]] && grep -q "Rufus Hsu" site.html && [[ "$final_url" != *"vercel.com/login"* ]]; then
