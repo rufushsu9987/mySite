@@ -2,6 +2,8 @@
 
 A fast, dependency-free portfolio site for Rufus Hsu, focused on AI applications, cloud architecture, and DevOps.
 
+**Live site:** https://rufus-hsu-portfolio-ai-saas-hsu.vercel.app
+
 ## Highlights
 
 - Responsive single-page portfolio
